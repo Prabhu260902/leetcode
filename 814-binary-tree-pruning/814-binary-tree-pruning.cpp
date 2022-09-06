@@ -13,8 +13,7 @@ class Solution {
 public:
     void tra(TreeNode* &root)
     {
-        if(root==NULL) return;
-        if(root->val==0 and root->left==NULL and root->right==NULL) root=NULL;
+        if(root==NULL) return;//if(root->val==0 and root->left==NULL and root->right==NULL) root=NULL;
         if(root!=NULL) tra(root->left);
         if(root!=NULL and root->val==0 and root->left==NULL and root->right==NULL) root=NULL;
         if(root!=NULL) tra(root->right);
