@@ -11,7 +11,6 @@
  */
 class Solution {
 public:
-    vector<int>temp1,temp2;
     vector<vector<int>>v;
     void ans(TreeNode* root,int targetSum,vector<int>temp)
     {
@@ -26,7 +25,6 @@ public:
         }
         temp.push_back(root->val);
         ans(root->left,targetSum-root->val,temp);
-       // temp.pop_back();
         ans(root->right,targetSum-root->val,temp);
         return ;
     }
