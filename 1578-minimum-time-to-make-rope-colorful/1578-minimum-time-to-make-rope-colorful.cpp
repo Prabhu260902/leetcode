@@ -2,39 +2,24 @@ class Solution {
 public:
     int minCost(string colors, vector<int>& needTime) {
         int ans=0;
-        int max=-1;
+        int m=-1;
         for(int i=colors.size()-2;i>=0;i--){
             if(colors[i]==colors[i+1]){
-                if(max==-1){
+                if(m==-1){
                     int a=needTime[i];
                     int b=needTime[i+1];
-                    if(a<b){
-                        cout<<a<<" ";
-                        ans+=a;
-                        max=b;
-                    }
-                    else{
-                        cout<<b<<" ";
-                        ans+=b;
-                        max=a;
-                    }
+                    ans+=min(a,b);
+                    m=max(a,b);
                 }
                 else{
                     int a=needTime[i];
-                    if(max<a){
-                        cout<<max<<" ";
-                        ans+=max;
-                        max=a;
-                    }
-                    else{
-                        cout<<a<<" ";
-                        ans+=a;
-                    }
+                    ans+=min(a,m);
+                    m=max(m,a);
                 }
                 
             }
             else{
-                max=-1;
+                m=-1;
             }
         }
         return ans;
