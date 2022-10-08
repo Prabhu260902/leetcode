@@ -1,19 +1,14 @@
 class Solution {
 public:
+    int sol(int n,vector<int>&dp){
+        if(n==1) return 1;
+        if(n==0) return 0;
+        if(dp[n]!=-1) return dp[n];
+        dp[n]=sol(n-1,dp)+sol(n-2,dp);
+        return dp[n];
+    }
     int fib(int n) {
-        if(n < 2){
-            return n;
-        }
-        vector<int> vals = {0, 1};
-        
-        int i = 2;
-        int sum = 1;
-        while(i <= n){
-            sum = vals[i-1] + vals[i-2];
-            vals.push_back(sum);
-            i++;
-        }
-        
-        return sum;
+        vector<int>dp(n+1,-1);
+        return sol(n,dp);
     }
 };
