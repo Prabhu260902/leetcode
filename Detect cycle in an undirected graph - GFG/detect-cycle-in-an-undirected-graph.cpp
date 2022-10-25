@@ -12,9 +12,8 @@ class Solution {
     	v[child]=1;
     	for(auto it:adj[child])
     	{
-    		if(v[it]!=1)
+    		if(!v[it])
     		{
-    		    v[it]=1;
     		    if(dfs(adj,v,child,it)) return true;
     		}
     		else if(it!=parent) return true;
@@ -26,7 +25,7 @@ class Solution {
         vector<int>v(V,0);
         for(int i=0;i<V;i++)
         {
-            if(v[i]!=1) 
+            if(!v[i]) 
             {
                 if(dfs(adj,v,-1,i)) return true;
             }
