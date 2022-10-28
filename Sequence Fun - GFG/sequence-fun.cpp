@@ -12,14 +12,14 @@ class Solution {
 		int NthTerm(int n){
 		    // Code  here
 		    long long mod=1000000007;
-		    vector<long long>v(n+1,0);
-		    v[1]=2;
+		    
+		    long long a=2;
 		    for(long long i=2;i<=n;i++)
 		    {
-		        v[i]=(((v[i-1]*(i))%mod)+1)%mod;
+		        a=(((a*i)%mod)+1)%mod;
 		        //cout<<v[i]<<" ";
 		    }
-		    return v[n];
+		    return a;
 		}
 
 };
