@@ -57,7 +57,7 @@ class GfG
     void add_to_ArrayList(ArrayList<Integer> A, int x)
     {
 	// Your code here
-	    A.add(x);
+	A.add(x);
     }	
 	
     /*sort the ArrayList A in ascending order*/
@@ -93,9 +93,6 @@ class GfG
     void print_ArrayList(ArrayList<Integer> A)
     {
         // Your code here
-        for(int i=0;i<A.size();i++)
-        {
-            System.out.print(A.get(i)+" ");
-        }
+        for(int i:A) System.out.print(i+" ");
     }
 }
