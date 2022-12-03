@@ -33,42 +33,22 @@ class GFG {
 
 // User function Template for Java
 class Solution {
-    public static int solve(int n, int k, int[] stalls) {
-
+        public static int solve(int n, int k, int[] stalls) {
         Arrays.sort(stalls);
-
         int ans=-1;
-
         int min=Integer.MAX_VALUE,  max=Integer.MIN_VALUE;
-
         for(int i=0; i<n; i++){
-
             min=Math.min(min,stalls[i]);
-
             max=Math.max(max,stalls[i]);
-
         }
-
-        //SETTING SEARCH SPACE
-
         int low = 0;
-
         int high = max-min;
-
         int mid=0;
-
-        
-
         while(low<=high){
-
             mid = low+(high-low)/2;            
-
-            if(isValidDistance(stalls, n, k, mid)){      //if valid, search in right to maximise 
-
+            if(isValidDistance(stalls, n, k, mid)){
                 ans=mid;
-
                 low = mid+1;
-
             }
             else
                 high = mid-1; 
