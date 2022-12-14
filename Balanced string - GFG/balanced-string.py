@@ -37,7 +37,6 @@ class Solution:
                 q=''.join(q)
                 ans=ans+p+q
                 return ans
-            
     
 
 
