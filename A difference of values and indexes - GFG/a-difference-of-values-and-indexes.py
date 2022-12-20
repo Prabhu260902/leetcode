@@ -2,6 +2,7 @@ class Solution:
     def maxDistance (self, arr, n) : 
         #Complete the function
         A1=[]
+
         A2=[]
 
         for i in range(n):
@@ -9,7 +10,6 @@ class Solution:
             A1.append(arr[i]-i)
 
             A2.append(arr[i]+i)
-
         return max(max(A1)-min(A1),max(A2)-min(A2))
 
 
