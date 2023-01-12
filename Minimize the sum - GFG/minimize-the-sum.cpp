@@ -27,7 +27,6 @@ public:
             ans+=(a+b);
         }
         return ans;
-        
     }
 };
 
