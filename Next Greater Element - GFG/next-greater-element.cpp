@@ -10,7 +10,7 @@ class Solution {
   public:
     vector<long long> nextLargerElement(vector<long long> &arr, int n){
         // Your code here
-        stack<long long>st;
+         stack<long long>st;
         vector<long long>v;
         v.push_back(-1);
         st.push(arr[n-1]);
