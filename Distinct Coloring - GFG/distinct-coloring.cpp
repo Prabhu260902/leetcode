@@ -9,8 +9,8 @@ using namespace std;
 #define ll long long int
 class Solution{   
 public:
-    long long int solve(vector<vector<ll>>&v,int ind,int color,vector<vector<ll>>&dp){
-    if(ind<0){
+    long long int solve(vector<vector<ll>>&v,int ind, int color, vector<vector<ll>>&dp){
+        if(ind<0){
             return 0;
         }
         if(dp[ind][color]!=-1) return dp[ind][color];
