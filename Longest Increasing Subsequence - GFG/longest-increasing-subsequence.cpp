@@ -15,11 +15,19 @@ class Solution
         if(a[i] < pick) return dp[i][pick] = max(1+solution(i-1,a,dp,a[i]),0+solution(i-1,a,dp,pick));
         return dp[i][pick] = 0+solution(i-1,a,dp,pick);
     }
-    int longestSubsequence(int n, int a[])
+    int longestSubsequence(int n, int arr[])
     {
        // your code here
-       vector<vector<int>>dp(n,vector<int>(100002,-1));
-       return solution(n-1,a,dp,100001);
+       vector<vector<int>>dp(n+1,vector<int>(n+1,0));
+	    for(int i=n-1;i>=0;i--){
+	        for(int j=i-1;j>=-1;j--){
+	            int len = 0+dp[i+1][j+1];
+	            if(j==-1 || arr[i] > arr[j]) len = max(len,1+dp[i+1][i+1]);
+	            dp[i][j+1]=len;
+	        }
+	        
+	    }
+	    return dp[0][0];
     }
 };
 
