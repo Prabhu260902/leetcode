@@ -18,11 +18,9 @@ class Solution {
         }
         for(int i=0;i<num;i++){
             int cnt = 0;
-            map<int,int>mpp;
             for(int j=Q[i][0];j<=Q[i][1];j++){
-                if(v[j]==Q[i][2] and mpp.find(A[j])==mpp.end()){
+                if(v[j]==Q[i][2]){
                     cnt++;
-                    mpp[A[j]]=1;
                 }
             }
             ans.push_back(cnt);
