@@ -43,7 +43,7 @@ class Solution
         Arrays.sort(arr);
         long total = 0;
         for(int i = 0 ; i < n ; i++){
-            if(!sum.containsKey(arr[i])) sum.put(arr[i],total);
+            sum.putIfAbsent(arr[i],total);
             total += arr[i];
         }
         
