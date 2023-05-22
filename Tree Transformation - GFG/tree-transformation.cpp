@@ -12,17 +12,21 @@ class Solution {
     public:
     int solve(int N, vector<int> p){
         // code here
+        if(N < 4) return 0;
         vector<int>v(N,0);
+        int k = 0;
         for(auto it:p){
-            if(it > 0){
+            if(it == 0) k++;
+            if(it > -1){
                 v[it]++;
             }
         }
         int cnt = 0;
         for(int i = 0 ; i < N ;i++){
-            if(v[i] != 0) cnt++;
+            if(v[i] == 0) cnt++;
         }
-        return cnt;
+        if(k == 1) return (N-cnt)-2;
+        else return (N-cnt)-1;
     }
 };
 
