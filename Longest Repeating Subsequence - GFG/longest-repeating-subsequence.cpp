@@ -5,22 +5,17 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
 	public:
-	    int n;
-	    int solve(string s,int i,int j,vector<vector<int>>&dp){
-	        if(i >= n || j >= n) return 0;
-	        int a = 0 , b = 0 , c = 0;
-	        if(dp[i][j] != -1) return dp[i][j];
-	        if(s[i] == s[j] and i != j) a = 1 + solve(s,i+1,j+1,dp);
+	    int solve(string &str,int ind1,int ind2,vector<vector<int>>&dp){
+	        if(ind1 >= str.size() || ind2 >= str.size()) return 0;
+	        if(dp[ind1][ind2] != -1) return dp[ind1][ind2];
+	        if(str[ind1] == str[ind2] and ind1 != ind2) return dp[ind1][ind2] = 1 + solve(str,ind1+1,ind2+1,dp);
 	        else{
-	            b = solve(s,i+1,j,dp);
-	            c = solve(s,i,j+1,dp);
+	            return dp[ind1][ind2] = max(solve(str,ind1+1,ind2,dp),solve(str,ind1,ind2+1,dp));
 	        }
-	        return dp[i][j] = max({a,b,c});
 	    }
 		int LongestRepeatingSubsequence(string str){
 		    // Code here
-		    n = str.size();
-		    vector<vector<int>>dp(n,vector<int>(n,-1));
+		    vector<vector<int>>dp(str.size(),vector<int>(str.size(),-1));
 		    return solve(str,0,1,dp);
 		}
 
